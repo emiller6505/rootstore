@@ -1,32 +1,20 @@
-# webstate
+# litestore
 
-Global state for the browser. Configure once, access anywhere.
-
-## What is this?
-
-**webstate** is a minimal, zero-dependency JavaScript state library for client-side applications. It provides a single global store with atomic, idempotent get/set operations — no framework lock-in, no build tool requirements, no transitive dependency trees.
-
-It works with React, Vue, Svelte, vanilla JS, or whatever comes next. You bring the rendering; webstate holds the state.
+A zero-dependency, lightweight global state store for the browser.
 
 ## Why?
 
-Most state libraries are tightly coupled to a specific framework, ship more code than you'd write yourself, or pull in dependencies you didn't ask for. If all you need is a reliable place to put global state — with clean reads, predictable writes, and the ability to subscribe to changes — you shouldn't need a framework-specific solution to get it.
-
-webstate exists because global state is a solved problem that keeps getting re-solved with unnecessary complexity.
+Other solutions are bloated, with confusing APIs. I wanted to see if I could implement a solution good enough for 80% of use cases with 90% less code.
 
 ## Principles
 
 ### Zero dependencies
 
-webstate has no production dependencies. None. Not even TypeScript — it's pure JavaScript. The library you install is the library you run. Dev tooling (test runners, linters) stays in dev where it belongs.
+Install litestore with the peace of mind that the next (supply-chain malware attack)[https://www.microsoft.com/en-us/security/blog/2026/04/01/mitigating-the-axios-npm-supply-chain-compromise/] on npm will come from a different package, not this one.
 
 ### Atomic operations
 
 Every `get` returns the current value. Every `set` replaces it. There are no partial updates that leave your state in an inconsistent intermediate form. Reads and writes are discrete, predictable operations.
-
-### Idempotent access
-
-Calling `get` ten times returns the same value ten times. Calling `set` with the same value doesn't trigger unnecessary noise. The store behaves the same way regardless of how many times or from where you access it.
 
 ### Configure once, access anywhere
 
@@ -34,7 +22,7 @@ You define your store's shape once at initialization. From that point on, any pa
 
 ### Framework-agnostic
 
-webstate doesn't know or care what renders your UI. It exposes a subscription mechanism that any rendering library can hook into. First-class bindings for React (and others) can be built as thin adapter layers on top, not baked into the core.
+litestore doesn't know or care what renders your UI. It exposes a subscription mechanism that any rendering library can hook into. First-class bindings for React (and others) can be built as thin adapter layers on top, not baked into the core.
 
 ## Designed for
 
