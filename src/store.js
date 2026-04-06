@@ -17,7 +17,7 @@ export function createStore(initialState = {}) {
   }
 
   function getSnapshot() {
-    return this.snapshot;
+    return snapshot;
   }
 
   function set(key, value) {
