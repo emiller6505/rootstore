@@ -45,5 +45,5 @@ export function createStore(initialState = {}) {
     }
   }
 
-  return { get, set, reset, subscribe };
+  return { get, getSnapshot, set, reset, subscribe };
 }
