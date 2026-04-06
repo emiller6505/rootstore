@@ -6,6 +6,7 @@
  */
 export function createStore(initialState = {}) {
   let state = structuredClone(initialState);
+  let snapshot = structuredClone(state);
   const listeners = new Set();
 
   function get(key) {
@@ -15,11 +16,16 @@ export function createStore(initialState = {}) {
     return structuredClone(state[key]);
   }
 
+  function getSnapshot() {
+    return this.snapshot;
+  }
+
   function set(key, value) {
     if (state[key] === value) {
       return;
     }
     state[key] = value;
+    snapshot = structuredClone(state);
     notify();
   }
 
