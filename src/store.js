@@ -16,8 +16,14 @@ export function createStore(initialState = {}) {
     return structuredClone(state[key]);
   }
 
-  function getSnapshot() {
-    return snapshot;
+  function getSnapshot(key) {
+    if (key === undefined) {
+      return snapshot;
+    }
+    if (snapshot[key] === undefined) {
+      return snapshot;
+    };
+    return snapshot[key];
   }
 
   function set(key, value) {
