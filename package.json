@@ -1,6 +1,6 @@
 {
   "name": "rootstore",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Zero-dependency global state for the browser",
   "type": "module",
   "main": "src/index.js",
